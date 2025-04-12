@@ -7,7 +7,7 @@
       :dense="true"
   >
     <app-date-time
-        class="ms-14"
+        class="ms-3"
     />
     <v-spacer/>
     <app-profile/>

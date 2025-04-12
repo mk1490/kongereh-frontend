@@ -9,7 +9,12 @@ export const routes = [
         meta: {
             title: 'داشبورد',
         },
-        children: [],
+        children: [
+            {
+                path: 'settings',
+                component: () => import('@/view/Components/Settings/Settings.vue'),
+            }
+        ],
     },
 
     {
