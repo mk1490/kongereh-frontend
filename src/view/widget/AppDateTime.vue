@@ -23,6 +23,6 @@ export default {
 <style scoped>
 span {
   font-family: VazirmatnUIFD;
-  color: white
+  color: black
 }
 </style>

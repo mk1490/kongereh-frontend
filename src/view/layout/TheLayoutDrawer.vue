@@ -5,8 +5,8 @@
       class="darken-4 navbar-background"
       app
       right
+      width="230"
       :mini-variant="true"
-      rail
       @input="stateNavbarShow">
 
     <the-layout-drawer-list

@@ -65,9 +65,6 @@
         <div class="background">
           <div class="d-inline-block">
             <div class="d-flex align-center justify-center mb-12">
-              <v-img
-                  max-width="210"
-                  :src="sepah"/>
             </div>
           </div>
         </div>
@@ -107,7 +104,7 @@ export default {
     login() {
       httpPost(serverAddress + `/api/auth/login`, this.model, (result) => {
         localStorage.setItem('Authorization', result.access_token);
-        this.$router.push({name: 'profile'}).then();
+        this.$router.push({path: '/'}).then();
       })
     },
     backToHomePage() {

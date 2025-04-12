@@ -2,11 +2,12 @@
   <v-tooltip bottom>
     <template v-slot:activator="{props}">
       <v-list-item
-          active-color="white"
+          active-color="primary"
           v-bind="props"
           :to="to"
-          base-color="white"
-          color="white"
+          :title="title"
+          base-color="primary"
+          color="primary"
           :prepend-icon="icon"
       ></v-list-item>
     </template>

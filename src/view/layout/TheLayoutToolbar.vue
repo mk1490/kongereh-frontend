@@ -11,35 +11,27 @@
     />
     <v-spacer/>
     <app-profile/>
+    <!--    <app-toggle-night-mode/>-->
 
-    <app-toggle-night-mode/>
 
-    <app-sound-alarm-play
-        v-if="soundPlaying"/>
-
-    <full-screen/>
+    <!--    <full-screen/>-->
   </v-app-bar>
 </template>
 
 <script>
 import {mapGetters} from 'vuex';
 import FullScreen from '../widget/AppFullScreen.vue';
-import Localization from '../widget/AppLocalization.vue';
-import Notification from '../widget/AppNotification.vue';
 import AppDateTime from "../widget/AppDateTime.vue";
-import AppSoundAlarmPlay from "../widget/AppSoundAlarmPlay.vue";
 import AppToggleNightMode from "../widget/AppToggleNightMode.vue";
-import AppProfile from "../widget/AppProfile.vue";
+import AppProfile from "@view/widget/AppProfile.vue";
 
 export default {
   name: 'TheLayoutToolbar',
   components: {
     AppProfile,
     AppToggleNightMode,
-    AppSoundAlarmPlay,
     AppDateTime,
     FullScreen,
-    Localization,
     Notification,
   },
   data: () => ({}),

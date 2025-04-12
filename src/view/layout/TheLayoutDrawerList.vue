@@ -103,8 +103,7 @@ export default {
 }
 
 .v-navigation-drawer .v-list {
-
-  color: white !important;
+  color: orange !important;
 }
 
 </style>
