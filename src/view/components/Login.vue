@@ -8,7 +8,7 @@
             <div class="d-flex justify-center">
               <v-img
                   height="100"
-                  src="/src/assets/images/logo.png"/>
+                  :src="logo"/>
             </div>
             <strong style="font-weight:  bolder">کنگره شهدای خراسان</strong>
           </div>
@@ -73,54 +73,43 @@
   </v-app>
 </template>
 
-<script>
-import logo from '@/assets/images/logo.png'
-import {httpPost, serverAddress} from "@/plugins/http/httpRequest";
-import BaseTextField from "@view/widget/Base/BaseTextField.vue";
+<script setup>
+import {ref, computed} from 'vue';
+import {useRouter} from 'vue-router';
+import logo from '@/assets/images/logo.png';
+import {httpPost, serverAddress} from '@/plugins/http/httpRequest';
 
-export default {
-  name: 'Login',
-  components: {BaseTextField},
-  computed: {
-    cardWidth: function () {
-      switch (this.$vuetify.display.name) {
-        case 'xs':
-          return 300
-        default:
-          return 500;
-      }
-    }
-  },
-  data() {
-    return {
-      passwordVisible: false,
-      model: {
-        username: '',
-        password: '',
-      }
-    }
-  },
-  methods: {
-    login() {
-      httpPost(serverAddress + `/api/auth/login`, this.model, (result) => {
-        localStorage.setItem('Authorization', result.access_token);
-        this.$router.push({path: '/'}).then();
-      })
-    },
-    backToHomePage() {
-      this.$router.push({
-        name: 'Home'
-      })
-    },
+const router = useRouter();
+const form = ref(null);
+const passwordVisible = ref(false);
 
-  }
-}
+
+const model = ref({
+  username: null,
+  password: null,
+})
+
+
+const login = () => {
+  httpPost(serverAddress + `/api/auth/login`, {
+    username: model.value.username,
+    password: model.value.password,
+  }, (result) => {
+    localStorage.setItem('Authorization', result.access_token);
+    router.push({path: '/'}).then(() => {
+    });
+  });
+};
+
+const backToHomePage = () => {
+  router.push({name: 'Home'});
+};
 </script>
 
 <style scoped>
 span {
   font-family: VazirmatnUIFD;
-  font-size: 1.3rem;;
+  font-size: 1.3rem;
 }
 
 .background {
@@ -128,7 +117,7 @@ span {
   height: 100vh;
   width: 100%;
   filter: blur(0px) brightness(0.4);
-  background-image: url('@images/bg.jpg');
+  background-image: url('@/assets/images/bg.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -137,7 +126,7 @@ span {
 }
 
 .customer-bg {
-  background-image: url(@images/bg.jpg);
+  background-image: url(@/assets/images/bg.jpg);
   background-position: center;
   background-size: cover;
 }

@@ -45,7 +45,9 @@ function submit() {
 
 <template>
   <base-modal
+      :visible="props.visible"
       :title="data? 'ویرایش کاربر': 'تعریف کاربر جدید'"
+      @close="emits('close')"
       @submit="submit">
 
     <div class="v-row">

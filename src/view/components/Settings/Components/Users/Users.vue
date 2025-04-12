@@ -3,6 +3,7 @@
 import BaseCardLayout from "@view/widget/Base/BaseCardLayout.vue";
 import {httpGet} from "@/plugins/http/httpRequest";
 import BaseTable from "@view/widget/Base/BaseTable.vue";
+import UserModal from "@view/components/Settings/Components/Users/UserModal.vue";
 
 const table = ref({
   headers: [
@@ -14,6 +15,11 @@ const table = ref({
 })
 
 
+const modal = ref({
+  visible: false,
+  data: null,
+})
+
 onMounted(() => {
   httpGet(`/user/list`, result => {
     table.value.contents = result;
@@ -21,7 +27,8 @@ onMounted(() => {
 })
 
 function define() {
-
+  modal.value.data = null;
+  modal.value.visible = true;
 }
 </script>
 
@@ -37,7 +44,15 @@ function define() {
         :actions="table.actions"
     />
 
+
   </base-card-layout>
+
+  <user-modal
+      v-if="modal.visible"
+      :visible="modal.visible"
+      :data="modal.data"
+      @close="modal.visible = false"
+  />
 </template>
 
 <style scoped>

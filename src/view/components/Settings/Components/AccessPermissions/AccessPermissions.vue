@@ -37,8 +37,10 @@ function define() {
   </base-card-layout>
 
   <access-permission-modal
+      v-if="modal.visible"
       :visible="modal.visible"
       :data="modal.data"
+      @close="modal.visible = false"
   />
 
 </template>

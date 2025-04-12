@@ -49,7 +49,7 @@
 
 export default {
   name: "BaseSquareButton",
-  components: {Icon},
+  components: {},
   emits: ['click'],
   props: {
     icon: String,
