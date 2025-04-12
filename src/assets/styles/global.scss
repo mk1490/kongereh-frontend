@@ -1,0 +1,403 @@
+﻿@import "Vazirmatn-UI-FD-font-face.css";
+
+
+@font-face {
+  font-family: BTitr;
+  src: url("../fonts/BTitr.ttf");
+}
+
+
+@font-face {
+  font-family: BZar;
+  src: url("../fonts/BZar.ttf");
+}
+
+@font-face {
+  font-family: BYekan;
+  src: url("../fonts/BYekan.ttf");
+}
+
+@font-face {
+  font-family: sevenSegment;
+  src: url("../fonts/7segment.ttf");
+}
+
+
+.v-list-group {
+  font-family: VazirmatnUIFD;
+}
+
+
+.v-btn__content {
+  font-family: VazirmatnUIFD
+}
+
+
+// data table
+.v-data-footer__select {
+  font-family: VazirmatnUIFD, serif;
+  font-weight: normal;
+  font-size: 1.3rem;
+}
+
+.v-data-table__empty-wrapper {
+  font-family: VazirmatnUIFD;
+  font-weight: bold;
+}
+
+th {
+  font-family: VazirmatnUIFD;
+  font-size: 0.95rem !important;
+}
+
+tr {
+  font-family: VazirmatnUIFD;
+}
+
+td {
+  font-size: 0.85rem !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: VazirmatnUIFD;
+  font-weight: bolder;
+}
+
+
+.v-card-title {
+  font-family: VazirmatnUIFD !important;
+  font-weight: bolder;
+}
+
+.headline {
+  font-family: "B Yekan" !important;
+}
+
+
+.v-text-field__slot .v-label {
+  font-family: VazirmatnUIFD;
+  text-align: right !important;
+}
+
+.v-text-field__slot {
+  font-family: VazirmatnUIFD;
+}
+
+
+.v-select-slot {
+  font-family: VazirmatnUIFD;
+}
+
+.v-select-slot .v-label {
+  font-family: VazirmatnUIFD;
+}
+
+.v-list-item-title {
+  font-family: VazirmatnUIFD;
+}
+
+.sqaure-btn {
+  min-width: 24px !important;
+  max-width: 24px !important;
+  width: 24px !important;
+}
+
+.v-tab {
+  font-family: VazirmatnUIFD;
+}
+
+label {
+  font-family: VazirmatnUIFD;
+  text-align: right !important;
+
+}
+
+.v-tooltip__content {
+  font-family: VazirmatnUIFD;
+}
+
+.iranf-yekan-regular {
+  font-family: "VazirmatnUIFD" !important;
+}
+
+.iran-sans-mobile {
+  font-family: VazirmatnUIFD;
+}
+
+small {
+  font-family: VazirmatnUIFD;
+  font-size: 0.75rem;
+}
+
+.swal2-title {
+  direction: rtl;
+  font-family: VazirmatnUIFD;
+}
+
+.swal2-confirm {
+  font-family: VazirmatnUIFD, serif !important;
+}
+
+.swal2-cancel {
+  font-family: VazirmatnUIFD, serif !important;
+}
+
+.swal2-label {
+  direction: rtl;
+}
+
+.v-expansion-panels {
+  font-family: VazirmatnUIFD, serif;
+}
+
+
+.v-stepper__label {
+  font-family: VazirmatnUIFD, serif;
+}
+
+.v-stepper__step__step {
+  font-family: VazirmatnUIFD, serif;
+}
+
+::-webkit-scrollbar {
+  width: .4em;
+  height: .4em
+}
+
+::-webkit-scrollbar-button {
+  background: #aaa
+}
+
+::-webkit-scrollbar-track-piece {
+  background: #ccc
+}
+
+::-webkit-scrollbar-thumb {
+  background: #777
+}
+
+.cke_editable {
+  font-family: VazirmatnUIFD, serif !important;
+}
+
+
+.v-list-item-subtitle {
+  font-family: VazirmatnUIFD;
+}
+
+
+.swal2-html-container {
+  font-family: VazirmatnUIFD;
+  direction: rtl;
+}
+
+.v-toolbar-title {
+  font-family: VazirmatnUIFD !important;
+}
+
+.v-data-footer__pagination {
+  font-family: VazirmatnUIFD;
+  font-size: 1.2rem;
+}
+
+.v-messages-message {
+  font-family: VazirmatnUIFD;
+  font-size: 0.85rem;
+  margin-top: 5px;
+  padding-bottom: 2px;
+  direction: rtl;
+}
+
+.card-section {
+  padding-top: 3px !important;
+  padding-bottom: 5px !important;
+  justify-content: center;
+}
+
+.card-section span {
+  font-size: 0.8rem;
+}
+
+span {
+  font-family: VazirmatnUIFD;
+}
+
+
+.full-width {
+  width: 100%;
+}
+
+
+.v-input-switch {
+  margin-top: 0px !important;
+}
+
+
+.card-subtitle {
+  font-family: VazirmatnUIFD, serif;
+  font-weight: normal;
+  font-size: 1.2rem !important;
+  margin-right: 5px;
+}
+
+
+.hide {
+  display: none !important;
+}
+
+.display-on-hover:hover + .hide {
+  display: block !important;
+}
+
+.v-input--checkbox label {
+  font-family: VazirmatnUIFD !important;
+
+}
+
+.toolbar-background {
+  background-color: white !important;
+}
+
+.navbar-background {
+  background: #142b19 !important;
+}
+
+
+.v-list-item-active {
+  color: #FDBB17 !important;
+}
+
+.v-treeview-node-label {
+  font-family: VazirmatnUIFD !important;
+  font-size: 1rem !important;
+}
+
+
+.v-chip-content {
+  font-family: VazirmatnUIFD !important;
+}
+
+
+.v-date-picker-header__value {
+  font-family: VazirmatnUIFD;
+}
+
+.v-date-picker-title {
+  font-family: VazirmatnUIFD;
+}
+
+.v-date-picker-years {
+  font-family: VazirmatnUIFD;
+}
+
+.v-time-picker-clock__container {
+  font-family: VazirmatnUIFD;
+}
+
+.v-date-picker-header__value .accent--text button {
+  direction: rtl !important;
+}
+
+.v-time-picker-title {
+  justify-content: center !important;
+  font-family: VazirmatnUIFD;
+}
+
+.theme--dark .vpd-content {
+  background-color: #181818 !important;
+}
+
+.theme--dark .vpd-time {
+  background-color: #181818 !important;
+}
+
+.vpd-container {
+  font-family: VazirmatnUIFD;
+}
+
+.vpd-actions {
+  font-family: VazirmatnUIFD;
+}
+
+.v-alert__content {
+  font-family: VazirmatnUIFD;
+}
+
+.project-selection-error-message {
+  display: flex;
+  justify-content: center;
+  font-family: VazirmatnUIFD, serif !important;
+  font-size: 1rem;
+  font-weight: 800;
+  color: #f44330;
+}
+
+.required--symbol {
+  direction: rtl !important;
+}
+
+.required--symbol small {
+  color: red !important;
+}
+
+.highcharts-credits {
+  display: none !important;
+}
+
+.v-btn__content {
+  font-family: VazirmatnUIFD, serif;
+  letter-spacing: normal;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.v-tab {
+  letter-spacing: normal !important;
+}
+
+
+.theme--dark {
+  .highcharts-axis-labels text {
+    fill: white !important;
+  }
+
+  .highcharts-yaxis text {
+    fill: white !important;
+  }
+
+  .highcharts-legend-item text {
+    fill: white !important;
+  }
+}
+
+.v-chip--select {
+  margin: 0.1rem !important;
+}
+
+.v-navigation-drawer .v-list {
+  background-color: transparent;
+}
+
+.field-description {
+  font-family: VazirmatnUIFD, serif;
+  font-size: 0.75rem;
+}
+
+.v-field__field {
+  font-family: VazirmatnUIFD, serif;
+}
+
+.v-date-picker-header__content {
+  font-family: VazirmatnUIFD, serif !important;
+}
+
+.v-picker-title {
+  visibility: hidden;
+  display: none;
+}
+
+.v-date-picker-month__day {
+  font-family: VazirmatnUIFD, serif;
+}
