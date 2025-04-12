@@ -7,7 +7,6 @@ import {VerticalNavLayout} from "@layouts";
 import NavbarThemeSwitcher from "@layouts/components/NavbarThemeSwitcher.vue";
 import UserProfile from "@layouts/components/UserProfile.vue";
 import {httpGet} from '@/plugins/http/httpRequest'
-import {Icon} from "@iconify/vue";
 import {useStore} from 'vuex'
 
 const store = useStore()
@@ -54,7 +53,9 @@ function toggleVerticalOverlayNavActive() {
             class="ms-n3 d-lg-none"
             @click="toggleVerticalOverlayNavActive(true)"
         >
-          <Icon icon="ri-menu-line"/>
+          <v-icon
+              icon="ri-menu-line">
+          </v-icon>
         </v-btn>
 
         <!--        <IconBtn>-->
@@ -67,7 +68,7 @@ function toggleVerticalOverlayNavActive() {
       </div>
     </template>
 
-<!--    <template #vertical-nav-header="{ toggleIsOverlayNavActive }">-->
+    <!--    <template #vertical-nav-header="{ toggleIsOverlayNavActive }">-->
     <!--      <RouterLink-->
     <!--          to="/"-->
     <!--          class="app-logo app-title-wrapper"-->
