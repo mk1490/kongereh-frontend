@@ -20,7 +20,6 @@ import TheLayoutToolbar from './TheLayoutToolbar.vue';
 import TheLayoutContent from './TheLayoutContent.vue';
 import TheLayoutFooter from './TheLayoutFooter.vue';
 import {serverAddress, httpGet} from "@/plugins/http/httpRequest";
-import {registerSocket} from "@core/utils/socketHandler";
 
 export default {
   async created() {
@@ -71,7 +70,6 @@ export default {
     });*/
 
     httpGet(serverAddress + `/api/auth/currentProfile`, data => {
-      registerSocket(serverAddress)
       this.$store.commit('SET_USER_INFO', data);
       if (['null', null, 'Root'].includes(this.$route.name)) {
         if (this.$store.getters.roles.includes('dashboard.main')) {
