@@ -1,5 +1,4 @@
 <script>
-import {Icon} from "@iconify/vue";
 
 export default {
   name: "BaseTabLayout",
@@ -18,7 +17,6 @@ export default {
     },
   },
   emits: ['buttonClick'],
-  components: {Icon},
   data() {
     return {
       selectedTab: this.value || 0,
