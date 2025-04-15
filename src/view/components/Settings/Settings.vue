@@ -3,10 +3,12 @@
 import BaseTabLayout from "@view/widget/Base/BaseTabLayout.vue";
 import Users from "@view/components/Settings/Components/Users/Users.vue";
 import AccessPermissions from "@view/components/Settings/Components/AccessPermissions/AccessPermissions.vue";
+import Categories from "@view/components/Settings/Components/Categories/Categories.vue";
 
 const tabs = ref([
   {title: 'کاربران', key: 'users'},
   {title: 'گروه‌های کاربری', key: 'accessPermissions'},
+  {title: 'دسته‌بندی', key: 'categories'},
 ])
 </script>
 
@@ -19,10 +21,15 @@ const tabs = ref([
           v-if="tabItem.key === 'users'"
       />
 
-
       <access-permissions
           v-if="tabItem.key === 'accessPermissions'"
       />
+
+
+      <categories
+          v-if="tabItem.key === 'categories'"
+      />
+
     </template>
 
   </base-tab-layout>
