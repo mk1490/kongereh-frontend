@@ -97,7 +97,7 @@ export default {
       this.$emit('update:modelValue', null);
     },
     submit() {
-      this.$emit('update:modelValue', this.date);
+      this.$emit('update:modelValue', new Date(this.date));
       this.menu = false;
     }
   },
