@@ -3,6 +3,12 @@
       color="white"
       class="layout-drawer">
 
+
+    <navigation-item
+        title="پشتیبانی"
+        icon="ri-customer-service-2-fill"
+        to="/support"/>
+
     <navigation-item
         title="تنظیمات"
         icon="ri-settings-4-fill"

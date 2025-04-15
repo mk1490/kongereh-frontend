@@ -13,6 +13,10 @@ export const routes = [
             {
                 path: 'settings',
                 component: () => import('@/view/Components/Settings/Settings.vue'),
+            },
+            {
+                path: 'support',
+                component: () => import('@/view/Components/Support/Support.vue'),
             }
         ],
     },
