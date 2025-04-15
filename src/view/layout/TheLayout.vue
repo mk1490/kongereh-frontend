@@ -69,7 +69,7 @@ export default {
       }
     });*/
 
-    httpGet(serverAddress + `/api/auth/currentProfile`, data => {
+    httpGet(serverAddress + `/api/auth/initialize`, data => {
       this.$store.commit('SET_USER_INFO', data);
       if (['null', null, 'Root'].includes(this.$route.name)) {
         if (this.$store.getters.roles.includes('dashboard.main')) {
