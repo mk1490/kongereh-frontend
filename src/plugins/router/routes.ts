@@ -17,6 +17,10 @@ export const routes = [
             {
                 path: 'support',
                 component: () => import('@/view/Components/Support/Support.vue'),
+            },
+            {
+                path: 'cms',
+                component: () => import('../../view/components/Cms/Cms.vue'),
             }
         ],
     },

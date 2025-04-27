@@ -9,6 +9,12 @@
         icon="ri-customer-service-2-fill"
         to="/support"/>
 
+
+    <navigation-item
+        title="مدیریت محتوا"
+        icon="ri-customer-service-2-fill"
+        to="/cms"/>
+
     <navigation-item
         title="تنظیمات"
         icon="ri-settings-4-fill"

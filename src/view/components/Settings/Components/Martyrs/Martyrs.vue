@@ -19,7 +19,7 @@ const table = ref({
     {text: 'نام', value: 'name'},
     {text: 'نام خانوادگی', value: 'family'},
     {text: 'نام پدر', value: 'fatherName'},
-    {text: 'شهر', value: 'city'},
+    {text: 'شهر ', value: 'city'},
     {text: 'تاریخ تولّد', value: 'birthDate'},
     {text: 'تاریخ شهادت', value: 'martyrDate'},
   ],
