@@ -10,6 +10,8 @@
     "lint": "eslint . -c .eslintrc.cjs --fix --ext .ts,.js,.cjs,.vue,.tsx,.jsx"
   },
   "dependencies": {
+    "@ckeditor/ckeditor5-build-classic": "^44.3.0",
+    "@ckeditor/ckeditor5-vue": "^7.3.0",
     "@date-io/jalaali": "^3.2.0",
     "@mdi/font": "^7.4.47",
     "@persian-tools/persian-tools": "^3.6.0",
