@@ -1,29 +1,25 @@
 <script setup>
 
-import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-import CKEditor from '@ckeditor/ckeditor5-vue';
 
+import BaseTextArea from "@view/widget/Base/BaseTextArea.vue";
 
 const model = ref(null);
+const props = defineProps({
+  modelValue: String,
+})
 
-const editor = ref(ClassicEditor);
+defineEmits(['update:modelValue'])
 
-const config = computed(() => {
-  if (!cloud.data.value) {
-    return null;
-  }
-
-  return {
-    toolbar: ['undo', 'redo', '|', 'bold', 'italic', '|', 'formatPainter']
-  };
-});
+onMounted(() => {
+  model.value = props.modelValue;
+})
 </script>
 
 <template>
-  <ckeditor
+  <base-text-area
       v-model="model"
-      :editor="editor"
-      :config="config"
+      @update:modelValue="$emit('update:modelValue', $event)"
+      label="متن"
   />
 </template>
 

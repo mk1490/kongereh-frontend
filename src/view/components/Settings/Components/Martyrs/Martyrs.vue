@@ -28,9 +28,12 @@ const table = ref({
     {
       type: 'edit',
       click: item => {
-        modal.value.index = table.value.contents.indexOf(item);
-        modal.value.data = item;
-        modal.value.visible = true;
+        httpGet(`/martyr/${item.id}`, result => {
+          modal.value.index = table.value.contents.indexOf(item);
+          modal.value.data = result;
+          modal.value.visible = true;
+        })
+
       }
     },
     {

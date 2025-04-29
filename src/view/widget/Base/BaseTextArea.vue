@@ -1,7 +1,6 @@
 <template>
   <v-textarea
-      :value="modelValue"
-      @input="$emit('update:modelValue', model)"
+      @update:modelValue="$emit('update:modelValue', model)"
       :label="label"
       :type="type"
       :disabled="disabled"
@@ -42,9 +41,15 @@ export default {
     },
     rules: Array,
   },
+  emits: ['update:modelValue'],
   data() {
     return {
       model: null,
+    }
+  },
+  mounted() {
+    if (this.modelValue) {
+      this.model = this.modelValue;
     }
   }
 }
