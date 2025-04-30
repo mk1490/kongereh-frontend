@@ -25,6 +25,10 @@ export const routes = [
             {
                 path: 'dev',
                 component: () => import('../../view/components/Settings/Components/Martyrs/Martyrs.vue'),
+            },
+            {
+                path: 'test',
+                component: () => import('../../view/components/Settings/Components/Martyrs/widgets/imageGallery/imageGallery.vue'),
             }
         ],
     },

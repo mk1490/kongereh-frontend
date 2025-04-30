@@ -10,6 +10,7 @@ import WillPaper from "@view/components/Settings/Components/Martyrs/widgets/will
 import Martyrs from "@view/components/Settings/Components/Martyrs/Martyrs.vue";
 import Biography from "@view/components/Settings/Components/Martyrs/widgets/biography.vue";
 import BaseButton from "@view/widget/Base/BaseButton.vue";
+import ImageGallery from "@view/components/Settings/Components/Martyrs/widgets/imageGallery/imageGallery.vue";
 
 
 const props = defineProps({
@@ -30,6 +31,7 @@ onMounted(() => {
     model.value.general.martyrDate = props.data.martyrDate;
     model.value.bio = props.data.bio;
     model.value.will = props.data.will;
+    imageItems.value = props.data.imageItems;
   }
 })
 
@@ -38,6 +40,7 @@ const tabs = ref([
   {title: 'عمومی', key: 'general'},
   {title: 'زندگی‌نامه', key: 'biography'},
   {title: 'وصیت‌نامه', key: 'willPaper'},
+  {title: 'آلبوم تصاویر', key: 'imageGallery'},
 
 ])
 
@@ -47,6 +50,7 @@ const model = ref({
   will: null,
   bio: null,
 })
+const imageItems = ref([])
 
 function submit() {
   let payload = {
@@ -105,6 +109,13 @@ function submit() {
         <biography
             v-if="tabItem.key === 'biography'"
             v-model="model.bio"/>
+
+
+        <image-gallery
+            v-if="tabItem.key === 'imageGallery'"
+            :items="imageItems"
+            :upload-image-url="`/martyr/upload-gallery-image-item/${props.data.id}`"
+        />
 
       </template>
 

@@ -11,8 +11,17 @@ const props = defineProps({
 defineEmits(['update:modelValue'])
 
 onMounted(() => {
-  model.value = props.modelValue;
+  setModel();
 })
+
+
+watch(props.modelValue, () => {
+  setModel();
+})
+
+function setModel() {
+  model.value = props.modelValue;
+}
 </script>
 
 <template>

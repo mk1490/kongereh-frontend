@@ -7,10 +7,10 @@ import Categories from "@view/components/Settings/Components/Categories/Categori
 import Martyrs from "@view/components/Settings/Components/Martyrs/Martyrs.vue";
 
 const tabs = ref([
-  {title: 'کاربران', key: 'users'},
-  {title: 'گروه‌های کاربری', key: 'accessPermissions'},
-  {title: 'دسته‌بندی', key: 'categories'},
+  // {title: 'کاربران', key: 'users'},
+  // {title: 'گروه‌های کاربری', key: 'accessPermissions'},
   {title: 'بانک اطلاعاتی شهدا', key: 'martyrs'},
+  {title: 'دسته‌بندی', key: 'categories'},
 ])
 </script>
 
