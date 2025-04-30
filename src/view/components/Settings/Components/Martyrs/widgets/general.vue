@@ -22,6 +22,8 @@ const model = ref({
   fatherName: null,
   birthDate: null,
   martyrDate: null,
+  martyrdomLocation: null,
+  burialLocation: null,
 })
 
 
@@ -43,6 +45,8 @@ function setModel() {
     model.value.fatherName = props.modelValue.fatherName;
     model.value.birthDate = props.modelValue.birthDate;
     model.value.martyrDate = props.modelValue.martyrDate;
+    model.value.burialLocation = props.modelValue.burialLocation;
+    model.value.martyrdomLocation = props.modelValue.martyrdomLocation;
   }
 }
 
@@ -112,16 +116,45 @@ const imageSrc = computed(() => {
               v-model="model.fatherName"
           />
         </div>
+
+        <div class="v-col-12">
+          <base-text-field
+              label="نام پدر"
+              required-symbol
+              v-model="model.fatherName"
+          />
+        </div>
+
+
         <div class="v-col-12">
           <base-date-time-text-field
               label="تاریخ تولّد"
               v-model="model.birthDate"
           />
         </div>
+
+
         <div class="v-col-12">
           <base-date-time-text-field
               label="تاریخ شهادت"
               v-model="model.martyrDate"
+          />
+        </div>
+
+
+        <div class="v-col-12">
+          <base-text-field
+              label="محل شهادت"
+              required-symbol
+              v-model="model.martyrdomLocation"
+          />
+        </div>
+        
+        <div class="v-col-12">
+          <base-text-field
+              label="محل دفن"
+              required-symbol
+              v-model="model.burialLocation"
           />
         </div>
       </div>
