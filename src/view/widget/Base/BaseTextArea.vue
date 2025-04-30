@@ -48,8 +48,21 @@ export default {
     }
   },
   mounted() {
-    if (this.modelValue) {
-      this.model = this.modelValue;
+    this.setModel()
+  },
+  watch: {
+    modelValue: {
+      handler() {
+        this.setModel()
+      },
+      deep: true,
+    }
+  },
+  methods: {
+    setModel() {
+      if (this.modelValue) {
+        this.model = this.modelValue;
+      }
     }
   }
 }
