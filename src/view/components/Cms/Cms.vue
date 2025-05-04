@@ -3,10 +3,12 @@
 import BaseCardLayout from "@view/widget/Base/BaseCardLayout.vue";
 import BaseTabLayout from "@view/widget/Base/BaseTabLayout.vue";
 import CmsCategory from "@view/components/Cms/widgets/cmsCategory.vue";
+import NewsManagement from "@view/components/Cms/tabs/news/newsManagement.vue";
 
 
 const tabs = ref([
   {title: 'دسته‌بندی', key: 'category'},
+  {title: 'اخبار', key: 'news'},
 ])
 </script>
 
@@ -19,6 +21,11 @@ const tabs = ref([
 
         <cms-category
             v-if="tabItem.key === 'category'"
+        />
+
+
+        <news-management
+            v-if="tabItem.key === 'news'"
         />
 
 
