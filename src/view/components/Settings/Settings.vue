@@ -5,12 +5,15 @@ import Users from "@view/components/Settings/Components/Users/Users.vue";
 import AccessPermissions from "@view/components/Settings/Components/AccessPermissions/AccessPermissions.vue";
 import Categories from "@view/components/Settings/Components/Categories/Categories.vue";
 import Martyrs from "@view/components/Settings/Components/Martyrs/Martyrs.vue";
+import MultipleImageGalleryUploader
+  from "@view/components/Settings/Components/Martyrs/widgets/imageGallery/multipleImageGalleryUploader.vue";
 
 const tabs = ref([
   // {title: 'کاربران', key: 'users'},
   // {title: 'گروه‌های کاربری', key: 'accessPermissions'},
   {title: 'بانک اطلاعاتی شهدا', key: 'martyrs'},
   {title: 'دسته‌بندی', key: 'categories'},
+  {title: 'گالری شهدا', key: 'imageGallery'},
 ])
 </script>
 
@@ -36,6 +39,12 @@ const tabs = ref([
       <martyrs
           v-if="tabItem.key === 'martyrs'"
       />
+
+      <multiple-image-gallery-uploader
+          v-if="tabItem.key === 'imageGallery'"
+          upload-image-url="/image-gallery"
+      />
+
 
     </template>
 

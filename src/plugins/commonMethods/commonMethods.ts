@@ -54,6 +54,7 @@ export function groupByArray(items, groupByKey) {
     }, {});
 }
 
+
 export const toastHandler = {
     isDeveloping() {
         $toast.info('درحال توسعه...', {
@@ -98,4 +99,5 @@ export const toastHandler = {
         })
     },
 }
+
 export {digitsFaToEn}

@@ -10,7 +10,7 @@ import WillPaper from "@view/components/Settings/Components/Martyrs/widgets/will
 import Martyrs from "@view/components/Settings/Components/Martyrs/Martyrs.vue";
 import Biography from "@view/components/Settings/Components/Martyrs/widgets/biography.vue";
 import BaseButton from "@view/widget/Base/BaseButton.vue";
-import ImageGallery from "@view/components/Settings/Components/Martyrs/widgets/imageGallery/imageGallery.vue";
+import MultipleImageGalleryUploader from "@view/components/Settings/Components/Martyrs/widgets/imageGallery/multipleImageGalleryUploader.vue";
 
 
 const props = defineProps({
@@ -113,7 +113,7 @@ function submit() {
             v-model="model.bio"/>
 
 
-        <image-gallery
+        <multiple-image-gallery-uploader
             v-if="tabItem.key === 'imageGallery'"
             :items="imageItems"
             :upload-image-url="`/martyr/upload-gallery-image-item/${props.data.id}`"

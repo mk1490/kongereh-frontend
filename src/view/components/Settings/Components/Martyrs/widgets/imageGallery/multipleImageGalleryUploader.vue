@@ -54,7 +54,10 @@ const hoverIndex = ref(-1)
 
 
 const props = defineProps({
-  items: Array,
+  items: {
+    type: Array,
+    default: [],
+  },
   uploadImageUrl: String
 })
 

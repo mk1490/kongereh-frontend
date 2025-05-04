@@ -28,7 +28,7 @@ export const routes = [
             },
             {
                 path: 'test',
-                component: () => import('../../view/components/Settings/Components/Martyrs/widgets/imageGallery/imageGallery.vue'),
+                component: () => import('../../view/components/Settings/Components/Martyrs/widgets/imageGallery/multipleImageGalleryUploader.vue'),
             }
         ],
     },
