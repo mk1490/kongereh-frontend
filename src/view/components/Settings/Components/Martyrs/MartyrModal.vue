@@ -32,6 +32,7 @@ onMounted(() => {
     model.value.general.martyrDate = props.data.martyrDate;
     model.value.general.martyrdomLocation = props.data.martyrdomLocation;
     model.value.general.burialLocation = props.data.burialLocation;
+    model.value.general.avatar = props.data.avatar;
     model.value.bio = props.data.bio;
     model.value.will = props.data.will;
     model.value.summaryOfBiography = props.data.summaryOfBiography;
@@ -103,6 +104,8 @@ function submit() {
     <base-tab-layout :tabs="tabs">
       <template v-for="(tabItem, tabIndex) in tabs"
                 v-slot:[`tab-${tabIndex+1}`]>
+
+
         <general
             v-if="tabItem.key === 'general'"
             v-model="model.general"

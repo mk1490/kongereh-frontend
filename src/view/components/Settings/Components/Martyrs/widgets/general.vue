@@ -4,7 +4,8 @@ import BaseTextField from "@view/widget/Base/BaseTextField.vue";
 import BaseDateTimeTextField from "@view/widget/Base/BaseDateTimeTextField.vue";
 import avatar from '@/assets/images/avatar.png'
 import BaseButton from "@view/widget/Base/BaseButton.vue";
-import {httpPost} from "@/plugins/http/httpRequest";
+import {httpPost, serverAddress} from "@/plugins/http/httpRequest";
+import {toastHandler} from "@/plugins/commonMethods/commonMethods";
 
 const props = defineProps({
   modelValue: Object,
@@ -17,6 +18,7 @@ let selectedFile = ref(null)
 let selectedImage = ref(null)
 
 const model = ref({
+  id: null,
   name: null,
   family: null,
   fatherName: null,
@@ -24,6 +26,7 @@ const model = ref({
   martyrDate: null,
   martyrdomLocation: null,
   burialLocation: null,
+  slug: null,
 })
 
 
@@ -39,7 +42,9 @@ watch(model.value, () => {
 
 
 function setModel() {
+  console.log("SET MODEL", props.modelValue)
   if (props.modelValue) {
+    model.value.id = props.modelValue.id;
     model.value.name = props.modelValue.name;
     model.value.family = props.modelValue.family;
     model.value.fatherName = props.modelValue.fatherName;
@@ -47,6 +52,7 @@ function setModel() {
     model.value.martyrDate = props.modelValue.martyrDate;
     model.value.burialLocation = props.modelValue.burialLocation;
     model.value.martyrdomLocation = props.modelValue.martyrdomLocation;
+    model.value.avatar = props.modelValue.avatar;
   }
 }
 
@@ -56,8 +62,10 @@ function openFilePicker() {
 
 function fileSelected(event) {
   selectedFile.value = event.target.files[0];
-  if (props.modelValue.id) {
-    uploadFile()
+  if (model.value.id) {
+    uploadFile(() => {
+      toastHandler.updateSuccess()
+    })
   }
 
 }
@@ -65,24 +73,24 @@ function fileSelected(event) {
 
 function uploadFile(callback) {
   const formData = new FormData();
-  formData.append("file", selectedFile.value);
+  formData.append("image", selectedFile.value);
   httpPost(`/martyr/upload-personal-image/${props.modelValue.id}`, formData, result => {
     if (selectedFile.value) {
-      uploadFile(() => {
-        callback(result);
-      })
+      callback(result);
     } else {
       callback(result);
     }
   }, error => {
-
+    callback(null);
   })
 }
 
 
 const imageSrc = computed(() => {
   if (selectedImage.value) {
-    return null;
+    return selectedImage.value;
+  } else if (props.modelValue && props.modelValue.avatar) {
+    return serverAddress + props.modelValue.avatar;
   } else {
     return avatar;
   }
@@ -149,12 +157,21 @@ const imageSrc = computed(() => {
               v-model="model.martyrdomLocation"
           />
         </div>
-        
+
         <div class="v-col-12">
           <base-text-field
               label="محل دفن"
               required-symbol
               v-model="model.burialLocation"
+          />
+        </div>
+
+        <div class="v-col-12">
+          <base-text-field
+              label="اسلاگ"
+              required-symbol
+              dir="ltr"
+              v-model="model.slug"
           />
         </div>
       </div>
@@ -169,7 +186,7 @@ const imageSrc = computed(() => {
           />
         </v-avatar>
       </div>
-      <div class="d-block d-flex justify-center">
+      <div class="d-block d-flex justify-center mt-2">
         <base-button
             label="بارگذاری تصویر"
             @click="openFilePicker"

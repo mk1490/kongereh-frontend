@@ -175,14 +175,14 @@ export const httpPut = (requestUrl: any, body: any, successCallback: any, errorC
 export const httpDelete = (requestUrl, successCallback, errorCallback) => {
     // store.showDeleteModal((status) => {
     //     if (status === true) {
-            _axiosInstance.delete(requestUrl).then(response => {
-                successCallback(response)
-            }).catch(error => {
-                if (errorCallback) {
-                    errorCallback(error)
-                }
-            })
-        // }
+    _axiosInstance.delete(requestUrl).then(response => {
+        successCallback(response)
+    }).catch(error => {
+        if (errorCallback) {
+            errorCallback(error)
+        }
+    })
+    // }
     // })*/
 }
 export const axiosInstance = _axiosInstance;
