@@ -10,7 +10,8 @@ import WillPaper from "@view/components/Settings/Components/Martyrs/widgets/will
 import Martyrs from "@view/components/Settings/Components/Martyrs/Martyrs.vue";
 import Biography from "@view/components/Settings/Components/Martyrs/widgets/biography.vue";
 import BaseButton from "@view/widget/Base/BaseButton.vue";
-import MultipleImageGalleryUploader from "@view/components/Settings/Components/Martyrs/widgets/imageGallery/multipleImageGalleryUploader.vue";
+import MultipleImageGalleryUploader
+  from "@view/components/Settings/Components/Martyrs/widgets/imageGallery/multipleImageGalleryUploader.vue";
 
 
 const props = defineProps({
@@ -33,6 +34,7 @@ onMounted(() => {
     model.value.general.burialLocation = props.data.burialLocation;
     model.value.bio = props.data.bio;
     model.value.will = props.data.will;
+    model.value.summaryOfBiography = props.data.summaryOfBiography;
     imageItems.value = props.data.imageItems;
   }
 })
@@ -41,6 +43,7 @@ onMounted(() => {
 const tabs = ref([
   {title: 'عمومی', key: 'general'},
   {title: 'زندگی‌نامه', key: 'biography'},
+  {title: 'خلاصه زندگی‌نامه', key: 'summaryOfBiography'},
   {title: 'وصیت‌نامه', key: 'willPaper'},
   {title: 'آلبوم تصاویر', key: 'imageGallery'},
 
@@ -51,6 +54,7 @@ const model = ref({
   general: {},
   will: null,
   bio: null,
+  summaryOfBiography: null,
 })
 const imageItems = ref([])
 
@@ -59,6 +63,7 @@ function submit() {
     ...model.value.general,
     will: model.value.will,
     bio: model.value.bio,
+    summaryOfBiography: model.value.summaryOfBiography
   }
 
   if (props.data) {
@@ -111,6 +116,11 @@ function submit() {
         <biography
             v-if="tabItem.key === 'biography'"
             v-model="model.bio"/>
+
+
+        <biography
+            v-if="tabItem.key === 'summaryOfBiography'"
+            v-model="model.summaryOfBiography"/>
 
 
         <multiple-image-gallery-uploader

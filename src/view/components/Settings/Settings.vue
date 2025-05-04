@@ -7,6 +7,7 @@ import Categories from "@view/components/Settings/Components/Categories/Categori
 import Martyrs from "@view/components/Settings/Components/Martyrs/Martyrs.vue";
 import MultipleImageGalleryUploader
   from "@view/components/Settings/Components/Martyrs/widgets/imageGallery/multipleImageGalleryUploader.vue";
+import {httpGet} from "@/plugins/http/httpRequest";
 
 const tabs = ref([
   // {title: 'کاربران', key: 'users'},
@@ -15,6 +16,16 @@ const tabs = ref([
   {title: 'دسته‌بندی', key: 'categories'},
   {title: 'گالری شهدا', key: 'imageGallery'},
 ])
+
+
+const imagesGallery = ref([]);
+
+onMounted(() => {
+  httpGet(`/image-gallery/list`, result => {
+    imagesGallery.value = result;
+  })
+})
+
 </script>
 
 <template>
@@ -42,6 +53,7 @@ const tabs = ref([
 
       <multiple-image-gallery-uploader
           v-if="tabItem.key === 'imageGallery'"
+          :items="imagesGallery"
           upload-image-url="/image-gallery"
       />
 

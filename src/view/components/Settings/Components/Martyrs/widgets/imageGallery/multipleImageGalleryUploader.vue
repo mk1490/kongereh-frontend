@@ -62,11 +62,13 @@ const props = defineProps({
 })
 
 onMounted(() => {
-  props.items.map(f => {
-    imageItems.value.push({
-      imageUrl: serverAddress + f.imageUrl,
+  if (props.items) {
+    props.items.map(f => {
+      imageItems.value.push({
+        imageUrl: serverAddress + f.imageUrl,
+      })
     })
-  })
+  }
 
 })
 const triggerFileInput = () => {
