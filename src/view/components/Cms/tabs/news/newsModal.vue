@@ -4,7 +4,8 @@ import BaseModal from "@view/widget/Base/BaseModal.vue";
 import BaseCardLayout from "@view/widget/Base/BaseCardLayout.vue";
 import BaseTextField from "@view/widget/Base/BaseTextField.vue";
 import BaseTextArea from "@view/widget/Base/BaseTextArea.vue";
-import {httpPost} from "@/plugins/http/httpRequest";
+import {httpPost, httpPut} from "@/plugins/http/httpRequest";
+import BaseSelect from "@view/widget/Base/BaseSelect.vue";
 
 const props = defineProps({
   visible: Boolean,
@@ -16,34 +17,55 @@ const props = defineProps({
 const model = ref({
   title: null,
   content: null,
+  categoryId: null,
 })
 
 
+const emits = defineEmits(['add', 'update', 'close'])
 
 
 function submit() {
-  httpPost(``, {
-    ...model.value
-  }, result => {
-    emits('add')
-  }, error => {
+  if (props.data) {
+    httpPut(`/news`, {
+      ...model.value
+    }, result => {
+      emits('update', result);
+    }, error => {
 
-  })
+    })
+  } else {
+    httpPost(`/news`, {
+      ...model.value
+    }, result => {
+      emits('add', result)
+    }, error => {
+
+    })
+  }
+
 }
 </script>
 
 <template>
   <base-modal
+      :visible="props.visible"
       @submit="submit"
-      title="تعریف خبر جدید"
-      :visible="props.visible">
-
+      @close="emits('close')"
+      title="تعریف خبر جدید">
 
     <div class="v-row">
       <div class="v-col-12">
         <base-text-field
             label="عنوان"
             v-model="model.title"
+        />
+      </div>
+
+      <div class="v-col-12">
+        <base-select
+            label="دسته‌بندی"
+            :items="initialize.categories"
+            v-model="model.categoryId"
         />
       </div>
 
