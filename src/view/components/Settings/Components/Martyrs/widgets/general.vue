@@ -41,8 +41,14 @@ watch(model.value, () => {
 })
 
 
+const form = ref(null);
+
+
+const rules = ref({
+  slug: [v => v.test(/^[a-z0-9-]+$/.test(v)) || 'از اسلاگ معتبر استفاده کنید.'],
+})
+
 function setModel() {
-  console.log("SET MODEL", props.modelValue)
   if (props.modelValue) {
     model.value.id = props.modelValue.id;
     model.value.name = props.modelValue.name;
@@ -99,102 +105,103 @@ const imageSrc = computed(() => {
 </script>
 
 <template>
-  <div class="v-row">
+  <v-form ref="form">
+    <div class="v-row">
+      <div class="v-col-8">
+        <div class="v-row">
+          <div class="v-col-12">
+            <base-text-field
+                label="نام"
+                required-symbol
+                v-model="model.name"
+            />
+          </div>
+          <div class="v-col-12">
+            <base-text-field
+                label="نام خانوادگی"
+                required-symbol
+                v-model="model.family"
+            />
+          </div>
+          <div class="v-col-12">
+            <base-text-field
+                label="نام پدر"
+                required-symbol
+                v-model="model.fatherName"
+            />
+          </div>
 
-    <div class="v-col-8">
-      <div class="v-row">
-        <div class="v-col-12">
-          <base-text-field
-              label="نام"
-              required-symbol
-              v-model="model.name"
-          />
+          <div class="v-col-12">
+            <base-text-field
+                label="نام پدر"
+                required-symbol
+                v-model="model.fatherName"
+            />
+          </div>
+
+
+          <div class="v-col-12">
+            <base-date-time-text-field
+                label="تاریخ تولّد"
+                v-model="model.birthDate"
+            />
+          </div>
+
+
+          <div class="v-col-12">
+            <base-date-time-text-field
+                label="تاریخ شهادت"
+                v-model="model.martyrDate"
+            />
+          </div>
+
+
+          <div class="v-col-12">
+            <base-text-field
+                label="محل شهادت"
+                required-symbol
+                v-model="model.martyrdomLocation"
+            />
+          </div>
+
+          <div class="v-col-12">
+            <base-text-field
+                label="محل دفن"
+                required-symbol
+                v-model="model.burialLocation"
+            />
+          </div>
+
+          <div class="v-col-12">
+            <base-text-field
+                label="اسلاگ"
+                required-symbol
+                v-model="model.slug"
+                :rules="rules"
+            />
+          </div>
         </div>
-        <div class="v-col-12">
-          <base-text-field
-              label="نام خانوادگی"
-              required-symbol
-              v-model="model.family"
-          />
+      </div>
+
+
+      <div class="v-col-4">
+        <div class="d-flex justify-center">
+          <v-avatar size="140">
+            <v-img
+                :src="imageSrc"
+            />
+          </v-avatar>
         </div>
-        <div class="v-col-12">
-          <base-text-field
-              label="نام پدر"
-              required-symbol
-              v-model="model.fatherName"
-          />
-        </div>
-
-        <div class="v-col-12">
-          <base-text-field
-              label="نام پدر"
-              required-symbol
-              v-model="model.fatherName"
-          />
-        </div>
-
-
-        <div class="v-col-12">
-          <base-date-time-text-field
-              label="تاریخ تولّد"
-              v-model="model.birthDate"
-          />
-        </div>
-
-
-        <div class="v-col-12">
-          <base-date-time-text-field
-              label="تاریخ شهادت"
-              v-model="model.martyrDate"
-          />
-        </div>
-
-
-        <div class="v-col-12">
-          <base-text-field
-              label="محل شهادت"
-              required-symbol
-              v-model="model.martyrdomLocation"
-          />
-        </div>
-
-        <div class="v-col-12">
-          <base-text-field
-              label="محل دفن"
-              required-symbol
-              v-model="model.burialLocation"
-          />
-        </div>
-
-        <div class="v-col-12">
-          <base-text-field
-              label="اسلاگ"
-              required-symbol
-              dir="ltr"
-              v-model="model.slug"
+        <div class="d-block d-flex justify-center mt-2">
+          <base-button
+              label="بارگذاری تصویر"
+              @click="openFilePicker"
           />
         </div>
       </div>
+
     </div>
-
-
-    <div class="v-col-4">
-      <div class="d-flex justify-center">
-        <v-avatar size="140">
-          <v-img
-              :src="imageSrc"
-          />
-        </v-avatar>
-      </div>
-      <div class="d-block d-flex justify-center mt-2">
-        <base-button
-            label="بارگذاری تصویر"
-            @click="openFilePicker"
-        />
-      </div>
-    </div>
-
-  </div>
+  </v-form>
   <input
       ref="filePicker"
       type="file"
